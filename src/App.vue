@@ -19,7 +19,7 @@
         <div class="sidebar-heading">
           Features
         </div>
-        <!--employees-->
+        <!--employees Part-->
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
              aria-expanded="true" aria-controls="collapseBootstrap">
@@ -29,7 +29,7 @@
           <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <router-link class="collapse-item" to="/store-employee">Add Employee</router-link>
-              <router-link class="collapse-item" to=" ">All Employees</router-link>
+              <router-link class="collapse-item" to="/employee">All Employees</router-link>
             </div>
           </div>
         </li>
