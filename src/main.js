@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 
+import axios from 'axios'
+Vue.prototype.$axios = axios
+
+
 // import VueNoty from 'vuejs-noty'
 // Vue.use(VueNoty)
 
@@ -18,6 +22,7 @@ const router = new VueRouter({
 // Import Notification Class
 import Notification from "@/assets/Notification"
 window.Notification = Notification
+
 
 Vue.config.productionTip = false
 

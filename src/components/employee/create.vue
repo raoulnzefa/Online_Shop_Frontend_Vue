@@ -71,12 +71,12 @@
                               class="form-control"
                               id="exampleInputBirthdate"
                               v-model="form.birthdate"/>
-                          <small class="text-danger" v-if="errors.joining_date">{{ errors.joining_date[0] }}</small>
+                          <small class="text-danger" v-if="errors.birthdate">{{ errors.birthdate[0] }}</small>
 
                         </div>
                         <div class="col-md-6">
                           <label for="exampleFormControlSelect1">Employee Department</label>
-                          <select class="form-control" id="exampleFormControlSelect1">
+                          <select class="form-control" id="exampleFormControlSelect1" v-model="form.department_id">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -125,38 +125,26 @@ export default {
         name: null,
         email: null,
         phone: null,
-        salary: null,
         address: null,
-        photo: null,
-        nid: null,
-        joining_date: null
+        birthdate: null,
+        department_id: 1
+
       },
       errors:{}
     }
   },
 
   methods:{
-    onFileSelected(event){
-      let file = event.target.files[0];
-      if (file.size > 1048770){
-        Notification.image_validation()
-      }else{
-        let reader = new FileReader();
-        reader.onload = event => {
-          this.form.photo = event.target.result
-          console.log(event.target.result);
-        };
-        reader.readAsDataURL(file);
-      }
+
+    employeeInsert(){
+      this.$axios.post('http://127.0.0.1:8000/api/employee',this.form)
+      .then(() => {
+        this.$router.push({ name: 'employee' })
+        //Notification.success()
+      })
+      .catch(error => this.errors = error.response.data.errors)
+
     },
-    // employeeInsert(){//console.log(this.form)
-    //   axios.post('/api/employee',this.form).then(() => {
-    //     this.$router.push({ name: 'employee' })
-    //     Notification.success()
-    //   })
-    //       .catch(error => this.errors = error.response.data.errors)
-    //
-    // },
   }
 }
 </script>
