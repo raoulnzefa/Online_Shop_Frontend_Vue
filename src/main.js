@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
+Vue.use(VueRouter)
 
 import axios from 'axios'
 Vue.prototype.$axios = axios
@@ -10,7 +11,15 @@ Vue.prototype.$axios = axios
 // Vue.use(VueNoty)
 
 
-Vue.use(VueRouter)
+
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2);
+
+
+import pagination from 'laravel-vue-pagination'
+Vue.component('pagination', pagination)
+
 
 import {routes} from './routes'
 

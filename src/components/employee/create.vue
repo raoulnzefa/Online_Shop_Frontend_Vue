@@ -77,11 +77,8 @@
                         <div class="col-md-6">
                           <label for="exampleFormControlSelect1">Employee Department</label>
                           <select class="form-control" id="exampleFormControlSelect1" v-model="form.department_id">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option v-for="department in departments" :key="department.id" :value="department.id"> {{ department.name }}</option>
+
                           </select>
 
                         </div>
@@ -127,10 +124,11 @@ export default {
         phone: null,
         address: null,
         birthdate: null,
-        department_id: 1
+        department_id: null
 
       },
-      errors:{}
+      errors:{},
+      departments: {}
     }
   },
 
@@ -145,7 +143,17 @@ export default {
       .catch(error => this.errors = error.response.data.errors)
 
     },
+  },
+
+  created(){
+    // Get data from departments table
+    this.$axios.get('http://127.0.0.1:8000/api/department')
+        .then(({data}) => (this.departments = data.data))
+
+
   }
+
+
 }
 </script>
 
