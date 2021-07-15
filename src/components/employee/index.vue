@@ -4,7 +4,7 @@
       <router-link to="/store-employee" class="btn btn-primary ml-3">Add Employee</router-link>
     </div>
     <br>
-    <input type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Name">
+    <input type="text"  @keyup="searchUnit" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Name">
     <br>
     <div class="row">
       <div class="col-lg-12 mb-4">
@@ -56,6 +56,7 @@
 
 <script>
   import pagination from "laravel-vue-pagination";
+  import {debounce} from "lodash";
 
   export default {
     components : { pagination },
@@ -65,7 +66,8 @@
     data(){
       return{
         employees:{},
-        searchTerm: ''
+        searchTerm: null,
+        page: 1
       }
     },
 
@@ -74,23 +76,30 @@
       this.getResults();
     },
 
-    computed:{
-      filterSearch(){
-        return this.employees.filter(employee => {
-          return employee.name.match(this.searchTerm)
-        })
-      }
-    },
+
+
 
     methods:{
 
+
       getResults(page = 1) {
-        this.$axios.get('http://127.0.0.1:8000/api/employee?page=' + page)
-            .then(response => {
+        this.page = page
+        this.$axios.get('http://127.0.0.1:8000/api/employee', {
+          params: {
+            page: page,
+            q: (this.searchTerm == '' ? null : this.searchTerm)
+
+          }
+        }).then(response => {
               this.employees= response.data.data;
 
-            });
+            })
       },
+
+      searchUnit: debounce(function(){
+        this.getResults()
+
+      }),
 
       deleteEmployee(id){
         this.$swal.fire({
@@ -105,12 +114,10 @@
           if (result.isConfirmed) {
             this.$axios.delete('http://127.0.0.1:8000/api/employee/'+ id)
                 .then(() => {
-                  this.employees = this.employees.filter(employee => {
-                    return employee.id != id
-                  })
+                  this.getResults(this.page)
+
                 })
                 .catch(() => {
-                  this.getResults(1)
                   // this.$router.push({name: 'employee'})
                 })
 
@@ -123,7 +130,7 @@
         })
 
       },
-    },
+    }
 
 
   }
