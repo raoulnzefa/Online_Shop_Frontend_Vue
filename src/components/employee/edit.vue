@@ -13,7 +13,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Employee Update</h1>
                   </div>
-                  <form class="user" @submit.prevent="employeeUpdate" enctype="multipart/form-data">`
+                  <form class="user" @submit.prevent="employeeUpdate" enctype="multipart/form-data" novalidate>`
                     <div class="form-group">
                       <div class="form-row">
                         <div class="col-md-6">
@@ -80,6 +80,7 @@
                             <option v-for="department in departments" :key="department.id" :value="department.id"> {{ department.name }}</option>
 
                           </select>
+                          <small class="text-danger" v-if="errors.department_id">{{ errors.department_id[0] }}</small>
 
                         </div>
                       </div>
