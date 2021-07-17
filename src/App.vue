@@ -33,6 +33,20 @@
             </div>
           </div>
         </li>
+        <!--contracts Part-->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap2"
+             aria-expanded="true" aria-controls="collapseBootstrap2">
+            <i class="far fa-fw fa-window-maximize"></i>
+            <span>Contracts</span>
+          </a>
+          <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <router-link class="collapse-item" to="/store-contract">Add Contract</router-link>
+              <router-link class="collapse-item" to="/contract">All Contracts</router-link>
+            </div>
+          </div>
+        </li>
         <!--suppliers-->
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"

@@ -22,7 +22,10 @@
                 <th>Phone</th>
                 <th>Address</th>
                 <th>Birth Date</th>
+                <th>Department</th>
+                <th>Contract</th>
                 <th>Action</th>
+
               </tr>
               </thead>
               <tbody>
@@ -32,9 +35,10 @@
                 <td>{{ employee.phone }}</td>
                 <td>{{ employee.address }}</td>
                 <td>{{ employee.birthdate }}</td>
+                <td>{{ employee.department.name }}</td>
+                <td></td>
                 <td>
                   <router-link :to="{name: 'edit-employee', params:{id:employee.id}}" class="btn btn-sm btn-primary">Edit</router-link>&nbsp;
-                  <router-link :to="{name: '', params:{id:employee.id}}" class="btn btn-sm btn-info">Create Contract</router-link>&nbsp;
                   <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger"><font color="#ffffff">Delete</font></a>
                 </td>
               </tr>
