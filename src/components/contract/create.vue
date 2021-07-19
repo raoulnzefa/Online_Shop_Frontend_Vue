@@ -53,7 +53,7 @@
                         <div class="col-md-6">
                           <label for="exampleFormControlSelect1">Contract Type</label>
                           <select class="form-control" id="exampleFormControlSelect1" v-model="form.type">
-                            <option v-for="department in departments" :key="department.id" :value="department.id"> {{ department.name }}</option>
+                            <option v-for="(key, type) in this.$parent.types" :key="key" :value="key"> {{ type }}</option>
 
                           </select>
                           <small class="text-danger" v-if="errors.department_id">{{ errors.department_id[0] }}</small>

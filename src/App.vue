@@ -319,9 +319,22 @@
 </template>
 
 <script>
+
 //import Login from './components/auth/login.vue'
+
 export default {
   name: 'App',
+  data() {
+    return {
+      types: null,
+    }
+
+  },
+  created() {
+    this.$axios.get('http://127.0.0.1:8000/api/configure')
+        .then(({data}) => (this.types = data.data.contract.type))
+
+  }
 
 }
 </script>
