@@ -13,7 +13,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Add Contract</h1>
                   </div>
-                  <form class="user" @submit.prevent="employeeInsert" enctype="multipart/form-data" novalidate>`
+                  <form class="user" @submit.prevent="contractInsert" enctype="multipart/form-data" novalidate>`
                     <div class="form-group">
                       <div class="form-row">
                         <div class="col-md-6">
@@ -53,10 +53,10 @@
                         <div class="col-md-6">
                           <label for="exampleFormControlSelect1">Contract Type</label>
                           <select class="form-control" id="exampleFormControlSelect1" v-model="form.type">
-                            <option v-for="(key, type) in this.$parent.types" :key="key" :value="key"> {{ type }}</option>
+                            <option v-for="(key, type) in this.$parent.configuration.contract.type" :key="key" :value="key"> {{ type }}</option>
 
                           </select>
-                          <small class="text-danger" v-if="errors.department_id">{{ errors.department_id[0] }}</small>
+                          <small class="text-danger" v-if="errors.type">{{ errors.type[0] }}</small>
 
                         </div>
                       </div>
@@ -112,20 +112,20 @@ export default {
         ending_date: null,
         salary: null,
         type: null,
+        employee_id: 1
 
 
       },
       errors:{},
-      departments: {}
     }
   },
 
   methods:{
 
-    employeeInsert(){
-      this.$axios.post('http://127.0.0.1:8000/api/employee',this.form)
+    contractInsert(){
+      this.$axios.post('http://127.0.0.1:8000/api/contract',this.form)
           .then(() => {
-            this.$router.push({ name: 'employee' })
+            this.$router.push({ name: 'contract' })
             //Notification.success()
           })
           .catch(error => this.errors = error.response.data.errors)
@@ -133,13 +133,7 @@ export default {
     },
   },
 
-  created(){
-    // Get data from departments table
-    this.$axios.get('http://127.0.0.1:8000/api/department')
-        .then(({data}) => (this.departments = data.data))
 
-
-  }
 
 
 }

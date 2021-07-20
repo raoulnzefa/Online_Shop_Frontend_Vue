@@ -6,6 +6,8 @@ Vue.use(VueRouter)
 import axios from 'axios'
 Vue.prototype.$axios = axios
 
+axios.defaults.withCredentials = true;
+
 
 // import VueNoty from 'vuejs-noty'
 // Vue.use(VueNoty)
