@@ -4,7 +4,7 @@
       <router-link to="/store-contract" class="btn btn-primary ml-3">Add Contract</router-link>
     </div>
     <br>
-    <input type="text"  @keyup="searchUnit" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Name">
+    <input type="text"  @keyup="searchUnit" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
     <br>
     <div class="row">
       <div class="col-lg-12 mb-4">
@@ -34,12 +34,12 @@
                 <td>{{ contract.employee.name }}</td>
                 <td>{{ contract.starting_date }}</td>
                 <td>{{ contract.ending_date }}</td>
-                <td>{{ contract.salary }}</td>
-                <td>{{ contract.type }}</td>
+                <td>{{ contract.salary }} $</td>
+                <td>{{ contract.type.type_name }}</td>
                 <td>{{ contract.status }}</td>
                 <td>
-                  <router-link :to="{name: 'edit-employee', params:{id:employee.id}}" class="btn btn-sm btn-primary">Edit</router-link>&nbsp;
-                  <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger"><font color="#ffffff">Delete</font></a>
+                  <router-link :to="{name: 'edit-contract', params:{id:contract.id}}" class="btn btn-sm btn-primary">Edit</router-link>&nbsp;
+                  <a @click="deleteContract(contract.id)" class="btn btn-sm btn-danger"><font color="#ffffff">Delete</font></a>
                 </td>
               </tr>
 
@@ -49,7 +49,7 @@
           <div class="card-footer"></div>
         </div>
 
-        <pagination :data="employees" @pagination-change-page="getResults" class="mt-4 float-right"></pagination>
+        <pagination :data="contracts" @pagination-change-page="getResults" class="mt-4 float-right"></pagination>
 
       </div>
     </div>
@@ -88,14 +88,14 @@ export default {
 
     getResults(page = 1) {
       this.page = page
-      this.$axios.get('http://127.0.0.1:8000/api/employee', {
+      this.$axios.get('http://127.0.0.1:8000/api/contract', {
         params: {
           page: page,
           q: (this.searchTerm == '' ? null : this.searchTerm)
 
         }
       }).then(response => {
-        this.employees= response.data.data;
+        this.contracts = response.data.data;
 
       })
     },
@@ -105,7 +105,7 @@ export default {
 
     }),
 
-    deleteEmployee(id){
+    deleteContract(id){
       this.$swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -116,7 +116,7 @@ export default {
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.$axios.delete('http://127.0.0.1:8000/api/employee/'+ id)
+          this.$axios.delete('http://127.0.0.1:8000/api/contract/'+ id)
               .then(() => {
                 this.getResults(this.page)
 

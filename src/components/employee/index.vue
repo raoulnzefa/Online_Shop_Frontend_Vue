@@ -4,7 +4,7 @@
       <router-link to="/store-employee" class="btn btn-primary ml-3">Add Employee</router-link>
     </div>
     <br>
-    <input type="text"  @keyup="searchUnit" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Name">
+    <input type="text"  @keyup="searchUnit" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
     <br>
     <div class="row">
       <div class="col-lg-12 mb-4">
