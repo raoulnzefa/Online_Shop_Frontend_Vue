@@ -23,8 +23,8 @@
                 <th>Address</th>
                 <th>Birth Date</th>
                 <th>Department</th>
-                <th>Contract</th>
-                <th>Action</th>
+                <th class="text-center">Contract</th>
+                <th class="text-center">Action</th>
 
               </tr>
               </thead>
@@ -36,7 +36,11 @@
                 <td>{{ employee.address }}</td>
                 <td>{{ employee.birthdate }}</td>
                 <td>{{ employee.department.name }}</td>
-                <td></td>
+                <td class="text-center">
+                  <router-link v-if="employee.contract_id == null" :to="{name: 'store-contract', params:{id:employee.id}}" class="btn btn-sm btn-warning"><font-awesome-icon :icon="['fas', 'plus-square']" size="1x"/></router-link>
+                  <router-link v-else :to="{name: 'view-contract', params:{id:employee.id}}" class="btn btn-sm btn-info"><font-awesome-icon :icon="['fas', 'file-contract']" size="1x"/></router-link>
+                </td>
+
                 <td>
                   <router-link :to="{name: 'edit-employee', params:{id:employee.id}}" class="btn btn-sm btn-primary">Edit</router-link>&nbsp;
                   <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger"><font color="#ffffff">Delete</font></a>
@@ -97,6 +101,7 @@
         }).then(response => {
               this.employees= response.data.data;
 
+              console.log(this.employees.data)
             })
       },
 

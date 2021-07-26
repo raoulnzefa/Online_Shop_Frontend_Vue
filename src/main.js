@@ -34,6 +34,13 @@ const router = new VueRouter({
 import Notification from "@/assets/Notification"
 window.Notification = Notification
 
+// Import fortawesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import {faFileContract, faPlusSquare} from '@fortawesome/free-solid-svg-icons'
+library.add(faFileContract, faPlusSquare)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 
 Vue.config.productionTip = false
 

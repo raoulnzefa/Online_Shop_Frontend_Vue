@@ -10,6 +10,8 @@ let editemployee = require('./components/employee/edit').default;
 let storecontract = require('./components/contract/create').default;
 let contract = require('./components/contract/index').default;
 let editcontract = require('./components/contract/edit').default;
+let viewcontract = require('./components/contract/view').default;
+
 
 
 export const routes = [
@@ -24,6 +26,8 @@ export const routes = [
     { path: '/store-contract', component: storecontract, name: 'store-contract' },
     { path: '/contract', component: contract, name: 'contract' },
     { path: '/edit-contract/:id', component: editcontract, name: 'edit-contract' },
+    { path: '/view-contract/:id', component: viewcontract, name: 'view-contract' },
+
 
 
 ]
