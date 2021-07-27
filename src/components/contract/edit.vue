@@ -52,7 +52,7 @@
                         </div>
                         <div class="col-md-6">
                           <label for="exampleFormControlSelect1">Contract Type</label>
-                          <select class="form-control" id="exampleFormControlSelect1">
+                          <select class="form-control" id="exampleFormControlSelect1" v-model="form.type.type_id">
                             <option v-for="(key, type) in this.$parent.configuration.contract.type" :key="key" :value="key" :selected="form.type.type_id === key"> {{ type }}</option>
                           </select>
 <!--                          <small class="text-danger" v-if="errors.type">{{ errors.type[0] }}</small>-->
@@ -127,7 +127,7 @@ export default {
       let info = {starting_date:this.form.starting_date,
         ending_date:this.form.ending_date,
         salary:this.form.salary,
-        type:this.form.type,
+        type:this.form.type.type_id,
         }
       this.$axios.put('http://127.0.0.1:8000/api/contract/'+ id, info)
           .then(() => {

@@ -7432,7 +7432,7 @@
 
             var stock = __webpack_require__(/*! ./components/product/stock.vue */ "./resources/js/components/product/stock.vue").default;
 
-            var editstock = __webpack_require__(/*! ./components/product/edit-stock.vue */ "./resources/js/components/product/edit-stock.vue").default; // Customer Component
+            var editstock = __webpack_require__(/*! ./components/product/edit-stock.vue */ "./resources/js/components/product/edit-stock.vue").default; // customer Component
 
 
             var storecustomer = __webpack_require__(/*! ./components/customer/create.vue */ "./resources/js/components/customer/create.vue").default;
@@ -7566,7 +7566,7 @@
                     path: '/edit-stock/:id',
                     component: editstock,
                     name: 'edit-stock'
-                }, // Customer Routes
+                }, // customer Routes
                 {
                     path: '/store-customer',
                     component: storecustomer,
@@ -53672,7 +53672,7 @@
                             _c(
                                 "router-link",
                                 { staticClass: "btn btn-primary", attrs: { to: "/customer" } },
-                                [_vm._v("All Customer")]
+                                [_vm._v("All customer")]
                             )
                         ],
                         1
@@ -53927,7 +53927,7 @@
                     var _c = _vm._self._c || _h
                     return _c("div", { staticClass: "text-center" }, [
                         _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-                            _vm._v("Add Customer")
+                            _vm._v("Add customer")
                         ])
                     ])
                 },
@@ -53936,7 +53936,7 @@
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
                     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-                        _c("b", [_vm._v("Customer Name")])
+                        _c("b", [_vm._v("customer Name")])
                     ])
                 },
                 function() {
@@ -53944,7 +53944,7 @@
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
                     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-                        _c("b", [_vm._v("Customer Email")])
+                        _c("b", [_vm._v("customer Email")])
                     ])
                 },
                 function() {
@@ -53952,7 +53952,7 @@
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
                     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-                        _c("b", [_vm._v("Customer Address")])
+                        _c("b", [_vm._v("customer Address")])
                     ])
                 },
                 function() {
@@ -53960,7 +53960,7 @@
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
                     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-                        _c("b", [_vm._v("Customer Phone")])
+                        _c("b", [_vm._v("customer Phone")])
                     ])
                 },
                 function() {
@@ -54006,7 +54006,7 @@
                             _c(
                                 "router-link",
                                 { staticClass: "btn btn-primary", attrs: { to: "/customer" } },
-                                [_vm._v("All Customer")]
+                                [_vm._v("All customer")]
                             )
                         ],
                         1
@@ -54261,7 +54261,7 @@
                     var _c = _vm._self._c || _h
                     return _c("div", { staticClass: "text-center" }, [
                         _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
-                            _vm._v("Customer Update")
+                            _vm._v("customer Update")
                         ])
                     ])
                 },
@@ -54270,7 +54270,7 @@
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
                     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-                        _c("b", [_vm._v("Customer Name")])
+                        _c("b", [_vm._v("customer Name")])
                     ])
                 },
                 function() {
@@ -54278,7 +54278,7 @@
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
                     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-                        _c("b", [_vm._v("Customer Email")])
+                        _c("b", [_vm._v("customer Email")])
                     ])
                 },
                 function() {
@@ -54286,7 +54286,7 @@
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
                     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-                        _c("b", [_vm._v("Customer Address")])
+                        _c("b", [_vm._v("customer Address")])
                     ])
                 },
                 function() {
@@ -54294,7 +54294,7 @@
                     var _h = _vm.$createElement
                     var _c = _vm._self._c || _h
                     return _c("label", { attrs: { for: "exampleFormControlTextarea1" } }, [
-                        _c("b", [_vm._v("Customer Phone")])
+                        _c("b", [_vm._v("customer Phone")])
                     ])
                 },
                 function() {
@@ -54340,7 +54340,7 @@
                             _c(
                                 "router-link",
                                 { staticClass: "btn btn-primary", attrs: { to: "/store-customer" } },
-                                [_vm._v("Add Customer")]
+                                [_vm._v("Add customer")]
                             )
                         ],
                         1
@@ -54467,7 +54467,7 @@
                         },
                         [
                             _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-                                _vm._v("Customer List")
+                                _vm._v("customer List")
                             ])
                         ]
                     )
@@ -56799,7 +56799,7 @@
                     var _c = _vm._self._c || _h
                     return _c("thead", { staticClass: "thead-light" }, [
                         _c("tr", [
-                            _c("th", [_vm._v("Customer Name")]),
+                            _c("th", [_vm._v("customer Name")]),
                             _vm._v(" "),
                             _c("th", [_vm._v("Qty")]),
                             _vm._v(" "),
@@ -57146,7 +57146,7 @@
                                                     { staticClass: "btn btn-sm btn-info" },
                                                     [
                                                         _c("font", { attrs: { color: "#ffffff" } }, [
-                                                            _vm._v("Add Customer")
+                                                            _vm._v("Add customer")
                                                         ])
                                                     ],
                                                     1
@@ -57320,7 +57320,7 @@
                                                     }
                                                 },
                                                 [
-                                                    _c("label", [_vm._v("Customer Name")]),
+                                                    _c("label", [_vm._v("customer Name")]),
                                                     _vm._v(" "),
                                                     _c(
                                                         "select",

@@ -12,6 +12,10 @@ let contract = require('./components/contract/index').default;
 let editcontract = require('./components/contract/edit').default;
 let viewcontract = require('./components/contract/view').default;
 
+// Customer Component
+let storecustomer = require('./components/customer/create').default;
+let customer = require('./components/customer/index').default;
+let editcustomer = require('./components/customer/edit').default;
 
 
 export const routes = [
@@ -27,6 +31,11 @@ export const routes = [
     { path: '/contract', component: contract, name: 'contract' },
     { path: '/edit-contract/:id', component: editcontract, name: 'edit-contract' },
     { path: '/view-contract/:id', component: viewcontract, name: 'view-contract' },
+
+    // Customer Routes
+    { path: '/store-customer', component: storecustomer, name: 'store-customer' },
+    { path: '/customer', component: customer, name: 'customer' },
+    { path: '/edit-customer/:id', component: editcustomer, name: 'edit-customer' },
 
 
 
