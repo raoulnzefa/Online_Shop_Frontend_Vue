@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <router-link to="/customer" class="btn btn-primary ml-3">All Customers</router-link>
+      <router-link to="/supplier" class="btn btn-primary ml-3">All Suppliers</router-link>
     </div>
     <div class="row justify-content-center">
       <div class="col-xl-12 col-lg-12 col-md-12">
@@ -11,13 +11,13 @@
               <div class="col-lg-12">
                 <div class="login-form">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Add Customer</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Supplier Update</h1>
                   </div>
-                  <form class="user" @submit.prevent="customerInsert" enctype="multipart/form-data" novalidate>`
+                  <form class="user" @submit.prevent="supplierUpdate" enctype="multipart/form-data" novalidate>`
                     <div class="form-group">
                       <div class="form-row">
                         <div class="col-md-6">
-                          <label for="exampleInputName">Customer Name</label>
+                          <label for="exampleInputName">Supplier Name</label>
                           <input
                               type="text"
                               class="form-control"
@@ -27,7 +27,7 @@
 
                         </div>
                         <div class="col-md-6">
-                          <label for="exampleInputEmail">Customer Email</label>
+                          <label for="exampleInputEmail">Supplier Email</label>
                           <input
                               type="email"
                               class="form-control"
@@ -41,7 +41,7 @@
                     <div class="form-group">
                       <div class="form-row">
                         <div class="col-md-6">
-                          <label for="exampleInputAddress">Customer Address</label>
+                          <label for="exampleInputAddress">Supplier Address</label>
                           <input
                               type="text"
                               class="form-control"
@@ -51,7 +51,7 @@
 
                         </div>
                         <div class="col-md-6">
-                          <label for="exampleInputPhone">Customer Phone Number</label>
+                          <label for="exampleInputPhone">Supplier Phone Number</label>
                           <input
                               type="text"
                               class="form-control"
@@ -65,9 +65,9 @@
                     <div class="form-group">
                       <div class="form-row">
                         <div class="col-md-6">
-                          <label for="exampleFormControlSelect1">Customer Status</label>
-                          <select class="form-control" id="exampleFormControlSelect1" v-model="form.status">
-                            <option v-for="(key, status) in this.$parent.configuration.customer.status" :key="key" :value="key"> {{ status }}</option>
+                          <label for="exampleFormControlSelect1">Supplier Status</label>
+                          <select class="form-control" id="exampleFormControlSelect1" v-model="form.status.status_id">
+                            <option v-for="(key, status) in this.$parent.configuration.supplier.status" :key="key" :value="key" :selected="form.status.status_id === key"> {{ status }}</option>
 
                           </select>
                           <small class="text-danger" v-if="errors.status">{{ errors.status[0] }}</small>
@@ -80,7 +80,7 @@
 
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary btn-block">
-                        Submit
+                        Update
                       </button>
                     </div>
 
@@ -102,12 +102,7 @@
 
 <script>
 export default {
-  // created() {
-  //   //console.log(User.loggedIn())
-  //   if (!User.loggedIn()){
-  //     this.$router.push({ name: '/' })
-  //   }
-  // },
+
   data() {
     return {
       form: {
@@ -122,12 +117,21 @@ export default {
     }
   },
 
+
   methods:{
 
-    customerInsert(){
-      this.$axios.post('http://127.0.0.1:8000/api/customer',this.form)
+    supplierUpdate(){
+      let id = this.$route.params.id
+      // when the page is loaded, this.form will include more data than clarified in data
+      let info = {name:this.form.name,
+        address:this.form.address,
+        email:this.form.email,
+        phone:this.form.phone,
+        status:this.form.status.status_id,
+      }
+      this.$axios.put('http://127.0.0.1:8000/api/supplier/'+ id, info)
           .then(() => {
-            this.$router.push({ name: 'customer' })
+            this.$router.push({ name: 'supplier' })
             //Notification.success()
           })
           .catch(error => this.errors = error.response.data.errors)
@@ -135,7 +139,14 @@ export default {
     },
   },
 
+  created(){
 
+    // Load the information of the employee
+    let id = this.$route.params.id
+    this.$axios.get('http://127.0.0.1:8000/api/supplier/' + id)
+        .then(({data}) => (this.form = data.data))
+        .catch()
+  }
 
 
 }

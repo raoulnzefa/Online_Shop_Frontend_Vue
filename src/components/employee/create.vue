@@ -147,6 +147,7 @@ export default {
   },
 
   created(){
+
     // Get data from departments table
     this.$axios.get('http://127.0.0.1:8000/api/department')
         .then(({data}) => (this.departments = data.data))

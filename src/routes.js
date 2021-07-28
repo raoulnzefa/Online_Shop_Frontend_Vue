@@ -17,6 +17,16 @@ let storecustomer = require('./components/customer/create').default;
 let customer = require('./components/customer/index').default;
 let editcustomer = require('./components/customer/edit').default;
 
+// Supplier Component
+let storesupplier = require('./components/supplier/create').default;
+let supplier = require('./components/supplier/index').default;
+let editsupplier = require('./components/supplier/edit').default;
+
+// Product Component
+let storeproduct = require('./components/product/create').default;
+let product = require('./components/product/index').default;
+let editproduct = require('./components/product/edit').default;
+
 
 export const routes = [
     { path: '/', component: login, name: '/' },
@@ -36,6 +46,16 @@ export const routes = [
     { path: '/store-customer', component: storecustomer, name: 'store-customer' },
     { path: '/customer', component: customer, name: 'customer' },
     { path: '/edit-customer/:id', component: editcustomer, name: 'edit-customer' },
+
+    // Supplier Routes
+    { path: '/store-supplier', component: storesupplier, name: 'store-supplier' },
+    { path: '/supplier', component: supplier, name: 'supplier' },
+    { path: '/edit-supplier/:id', component: editsupplier, name: 'edit-supplier' },
+
+    // Product Routes
+    { path: '/store-product', component: storeproduct, name: 'store-product' },
+    { path: '/product', component: product, name: 'product' },
+    { path: '/edit-product/:id', component: editproduct, name: 'edit-product' },
 
 
 

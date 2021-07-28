@@ -61,7 +61,7 @@
             </div>
           </div>
         </li>
-        <!--suppliers-->
+        <!--suppliers Part-->
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"
              aria-expanded="true" aria-controls="collapseBootstrap1">
@@ -70,8 +70,22 @@
           </a>
           <div id="collapseBootstrap1" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <router-link class="collapse-item" to=" ">Add Supplier</router-link>
-              <router-link class="collapse-item" to=" ">All Suppliers</router-link>
+              <router-link class="collapse-item" to="/store-supplier">Add Supplier</router-link>
+              <router-link class="collapse-item" to="/supplier">All Suppliers</router-link>
+            </div>
+          </div>
+        </li>
+        <!--products part-->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap4"
+             aria-expanded="true" aria-controls="collapseBootstrap4">
+            <i class="far fa-fw fa-window-maximize"></i>
+            <span>Products</span>
+          </a>
+          <div id="collapseBootstrap4" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <router-link class="collapse-item" to="/store-product">Add Product</router-link>
+              <router-link class="collapse-item" to="/product">All Products</router-link>
             </div>
           </div>
         </li>
@@ -340,15 +354,42 @@ export default {
   name: 'App',
   data() {
     return {
-      configuration: null,
+      // configuration: {"contract":{"type":{"permanent":0,"fixed-term":1,"casual":2}},"customer":{"status":{"normal":0,"unormal":1}},"supplier":{"status":{"normal":0,"unormal":1}},"product":{"status":{"on-sale":0,"off-shelf":1}}}
+      configuration: null
     }
 
   },
-  created() {
-    this.$axios.get('http://127.0.0.1:8000/api/configure')
-        .then(({data}) => (this.configuration = data.data))
+  mounted() {
 
+  },
+  async created() {
+    try {
+      let res = await this.getConfiguration()
+      this.configuration = res.data.data
+    } catch (e) {
+      console.log(e)
+    }
+
+  },
+  methods: {
+    // try {
+    //   let res = await this.$axios.get('http://127.0.0.1:8000/api/configure')
+    //   // console.log(res.data.data)
+    //   this.configuration = res.data.data
+    // } catch (e) {
+    //   console.log(e)
+    // }
+    getConfiguration() {
+      return new Promise((resolve, reject) => {
+        this.$axios.get('http://127.0.0.1:8000/api/configure').then((res) => {
+          resolve(res)
+        }).catch((err) => {
+          reject(err)
+        })
+      })
+    }
   }
+
 
 }
 </script>
