@@ -27,6 +27,10 @@ let storeproduct = require('./components/product/create').default;
 let product = require('./components/product/index').default;
 let editproduct = require('./components/product/edit').default;
 
+// Feedback Component
+let feedback = require('./components/feedback/index').default;
+let replyfeedback = require('./components/feedback/reply').default;
+
 
 export const routes = [
     { path: '/', component: login, name: '/' },
@@ -56,6 +60,11 @@ export const routes = [
     { path: '/store-product', component: storeproduct, name: 'store-product' },
     { path: '/product', component: product, name: 'product' },
     { path: '/edit-product/:id', component: editproduct, name: 'edit-product' },
+
+    // Feedback Routes
+    { path: '/feedback', component: feedback, name: 'feedback' },
+    { path: '/reply-feedback', component: replyfeedback, name: 'reply-feedback' },
+
 
 
 
