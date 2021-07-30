@@ -17,8 +17,8 @@
             <table class="table align-items-center table-flush">
               <thead class="thead-light">
               <tr>
-                <th>Name</th>
-                <th>Email</th>
+                <th>User Name</th>
+                <th>User Email</th>
                 <th>Subject</th>
                 <th>Message</th>
                 <th>Status</th>

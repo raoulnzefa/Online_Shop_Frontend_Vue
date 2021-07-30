@@ -30,6 +30,8 @@ let editproduct = require('./components/product/edit').default;
 // Feedback Component
 let feedback = require('./components/feedback/index').default;
 let replyfeedback = require('./components/feedback/reply').default;
+let editfeedback = require('./components/feedback/edit').default;
+
 
 
 export const routes = [
@@ -63,7 +65,8 @@ export const routes = [
 
     // Feedback Routes
     { path: '/feedback', component: feedback, name: 'feedback' },
-    { path: '/reply-feedback', component: replyfeedback, name: 'reply-feedback' },
+    { path: '/reply-feedback/:id', component: replyfeedback, name: 'reply-feedback' },
+    { path: '/edit-feedback/:id', component: editfeedback, name: 'edit-feedback' },
 
 
 
