@@ -53,7 +53,7 @@
                     </div>
                   </form>
                   <hr />
-                  <div class="text-center">
+                  <div class="text-center" id="answers">
                     <ul class="list-group" v-for="answer in answers" :key="answer.id">
                       <li class="list-group-item d-flex justify-content-between align-items-center">
                         {{ answer.answer }}
@@ -105,8 +105,10 @@ export default {
         }
       this.$axios.post('http://127.0.0.1:8000/api/feedback-answer', info)
           .then(() => {
-            // modify here
-            this.$router.push({ name: 'employee' })
+            this.getAllAnswers()
+            this.form.answer = null
+            document.getElementById('answers').scrollIntoView();
+            //this.$router.push({name: 'reply-feedback', params:{id:id}})
             //Notification.success()
           })
           .catch(error => this.errors = error.response.data.errors)

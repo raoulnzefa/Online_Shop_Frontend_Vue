@@ -32,6 +32,11 @@ let feedback = require('./components/feedback/index').default;
 let replyfeedback = require('./components/feedback/reply').default;
 let editfeedback = require('./components/feedback/edit').default;
 
+// Vat Component
+let storevat = require('./components/vat/create').default;
+let vat = require('./components/vat/index').default;
+let editvat = require('./components/vat/edit').default;
+
 
 
 export const routes = [
@@ -68,7 +73,9 @@ export const routes = [
     { path: '/reply-feedback/:id', component: replyfeedback, name: 'reply-feedback' },
     { path: '/edit-feedback/:id', component: editfeedback, name: 'edit-feedback' },
 
-
-
+    // Vat Routes
+    { path: '/store-vat', component: storevat, name: 'store-vat' },
+    { path: '/vat', component: vat, name: 'vat' },
+    { path: '/edit-vat/:id', component: editvat, name: 'edit-vat' },
 
 ]
