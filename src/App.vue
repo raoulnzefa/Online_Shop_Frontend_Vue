@@ -117,6 +117,33 @@
             </div>
           </div>
         </li>
+        <!--article category part-->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap7"
+             aria-expanded="true" aria-controls="collapseBootstrap7">
+            <i class="far fa-fw fa-window-maximize"></i>
+            <span>Article Categories</span>
+          </a>
+          <div id="collapseBootstrap7" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <router-link class="collapse-item" to="/article-category">All Article Categories</router-link>
+            </div>
+          </div>
+        </li>
+        <!--article part-->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap8"
+             aria-expanded="true" aria-controls="collapseBootstrap8">
+            <i class="far fa-fw fa-window-maximize"></i>
+            <span>Articles</span>
+          </a>
+          <div id="collapseBootstrap8" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <router-link class="collapse-item" to="/store-article">Add Article</router-link>
+              <router-link class="collapse-item" to="/article">All Articles</router-link>
+            </div>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="forms.html">
             <i class="fab fa-fw fa-wpforms"></i>

@@ -37,6 +37,14 @@ let storevat = require('./components/vat/create').default;
 let vat = require('./components/vat/index').default;
 let editvat = require('./components/vat/edit').default;
 
+// Article_Category Component
+let articleCategory = require('./components/article_category/index').default;
+
+// Article Component
+let storearticle= require('./components/article/create').default;
+let article = require('./components/article/index').default;
+let editarticle = require('./components/article/edit').default;
+
 
 
 export const routes = [
@@ -78,4 +86,11 @@ export const routes = [
     { path: '/vat', component: vat, name: 'vat' },
     { path: '/edit-vat/:id', component: editvat, name: 'edit-vat' },
 
+    // Article Category Routes
+    { path: '/article-category', component: articleCategory, name: 'article-category' },
+
+    // Article Routes
+    { path: '/store-article', component: storearticle, name: 'store-article' },
+    { path: '/article', component: article, name: 'article' },
+    { path: '/edit-article/:id', component: editarticle, name: 'edit-article' },
 ]
