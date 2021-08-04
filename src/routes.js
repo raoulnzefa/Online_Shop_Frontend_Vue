@@ -45,6 +45,10 @@ let storearticle= require('./components/article/create').default;
 let article = require('./components/article/index').default;
 let editarticle = require('./components/article/edit').default;
 
+// Order Component
+let order = require('./components/order/index').default;
+let vieworder = require('./components/order/view').default;
+
 
 
 export const routes = [
@@ -93,4 +97,8 @@ export const routes = [
     { path: '/store-article', component: storearticle, name: 'store-article' },
     { path: '/article', component: article, name: 'article' },
     { path: '/edit-article/:id', component: editarticle, name: 'edit-article' },
+
+    // Order Routes
+    { path: '/order', component: order, name: 'order' },
+    { path: '/view-order/:id', component: vieworder, name: 'view-order' },
 ]

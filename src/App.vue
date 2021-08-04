@@ -144,6 +144,19 @@
             </div>
           </div>
         </li>
+        <!--order part-->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap9"
+             aria-expanded="true" aria-controls="collapseBootstrap9">
+            <i class="far fa-fw fa-window-maximize"></i>
+            <span>Orders</span>
+          </a>
+          <div id="collapseBootstrap9" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <router-link class="collapse-item" to="/order">All Orders</router-link>
+            </div>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="forms.html">
             <i class="fab fa-fw fa-wpforms"></i>
